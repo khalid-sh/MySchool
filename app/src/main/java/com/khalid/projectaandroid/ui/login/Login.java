@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();
     }
-
+//commantaire
     public static boolean isValidUSN(String usn){
         Pattern VALID_USN_REGEX = Pattern.compile("^[0-9][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$");
         Matcher matcher = VALID_USN_REGEX.matcher(usn);
