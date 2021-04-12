@@ -16,4 +16,8 @@
 
     <dimen name="start_quiz_image_view_size">80dp</dimen>
 
+    <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="loginViewsMargin">20dp</dimen>
+
 </resources>
