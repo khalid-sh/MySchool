@@ -141,7 +141,7 @@
         android:background="@android:drawable/editbox_background"
         android:text="Select state"
 
-        app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_circle_24" />
+        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_circle_24" />
 
 
     <com.google.android.material.textfield.TextInputLayout

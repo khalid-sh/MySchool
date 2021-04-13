@@ -11,7 +11,7 @@ public class AdminDAO {
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     public void insertAdmin(Admin admin, FirebaseUser currentUser) {
-        DocumentReference documentReference = fStore.collection("Admins").document(currentUser.getUid());
+        DocumentReference documentReference = fStore.collection("Admins").document(admin.getfName());
         documentReference.set(admin);
     }
 

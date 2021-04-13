@@ -50,6 +50,12 @@ public class AdminDashbordActivity extends AppCompatActivity {
             }
         });
         CardView cardViewClasses = (CardView) findViewById(R.id.classes);
+        cardViewClasses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ListClassesActivity.class));
+            }
+        });
         CardView cardViewSetting = (CardView) findViewById(R.id.setting);
         FirebaseUser user = fAuth.getCurrentUser();
         name = (TextView)findViewById(R.id.dashboard_adminName);

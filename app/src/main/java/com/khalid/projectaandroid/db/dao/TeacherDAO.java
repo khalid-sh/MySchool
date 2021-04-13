@@ -13,7 +13,7 @@ public class TeacherDAO {
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     public  void insertTeacher(Teacher teacher, FirebaseUser currentUser){
-        DocumentReference documentReference = fStore.collection("Teachers").document(currentUser.getUid());
+        DocumentReference documentReference = fStore.collection("Teachers").document(teacher.getlName());
         documentReference.set(teacher);
     }
     public  DocumentReference getUserById(String uid){
