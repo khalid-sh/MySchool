@@ -36,9 +36,8 @@ import java.util.Calendar;
 public class AjoutActivity extends AppCompatActivity {
 
     TextInputEditText date_time_in;
-    TextInputEditText date_birth;
+     TextInputEditText date_birth;
     TextView text_role;
-    ArrayList<String> liste_role;
     Dialog dialog;
     TextView text_state;
     ArrayList<String> list_state;
@@ -51,10 +50,11 @@ public class AjoutActivity extends AppCompatActivity {
 
         setContentView(R.layout.formualire_ajout);
         changeStatusBarColor();
-        // date_time_in = findViewById(R.id.editTextDateTime);
-        date_birth = findViewById(R.id.edittextBirth);
-        text_role = findViewById(R.id.Textrole);
+       // date_time_in = findViewById(R.id.editTextDateTime);
+date_birth=findViewById(R.id.edittextBirth);
+    text_role = findViewById(R.id.Textrole);
 
+    ArrayList<String> liste_role;
 
         liste_role = new ArrayList<>();
         liste_role.add("Admin");
@@ -184,16 +184,16 @@ public class AjoutActivity extends AppCompatActivity {
         });
 
 
-        // date_time_in.setInputType(InputType.TYPE_NULL);
+         date_time_in.setInputType(InputType.TYPE_NULL);
         date_birth.setInputType(InputType.TYPE_NULL);
 
 
-     /*   date_time_in.setOnClickListener(new View.OnClickListener() {
+       date_time_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDateTimeDialog(date_time_in);
             }
-        });*/
+        });
 
         date_birth.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,7 +204,7 @@ public class AjoutActivity extends AppCompatActivity {
 
     }
 
- /*   private void showDateTimeDialog(final TextInputEditText date_time_in) {
+ private void showDateTimeDialog(final TextInputEditText date_time_in) {
         final Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -231,7 +231,7 @@ public class AjoutActivity extends AppCompatActivity {
 
         new DatePickerDialog(AjoutActivity.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
 
-    }*/
+    }
 
     private void showDateDialog(final TextInputEditText date_in) {
         final Calendar calendar = Calendar.getInstance();
@@ -251,14 +251,17 @@ public class AjoutActivity extends AppCompatActivity {
     }
 
 
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor(Color.TRANSPARENT);
-            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+        private void changeStatusBarColor () {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+              //  window.setStatusBarColor(Color.TRANSPARENT);
+                window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+            }
         }
-    }
-
 
 }
+
+
+
+

@@ -35,6 +35,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputName"
                         style="@style/parent"
@@ -67,25 +68,31 @@
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputEmail"
-                        style="@style/parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="39dp"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-
                         app:endIconMode="clear_text"
-                        app:startIconDrawable="@drawable/ic_baseline_email_24">
+                        app:helperText="Required"
+                        app:helperTextTextColor="@color/red"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:startIconDrawable="@drawable/ic_baseline_email_24"
+
+
+                        >
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextEmail"
                             style="@style/modifiedEditText"
 
+                           
+                            android:drawablePadding="5dp"
                             android:hint="@string/login_email_hint"
                             android:inputType="textEmailAddress"
 
                             />
                     </com.google.android.material.textfield.TextInputLayout>
-
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputAdress"
@@ -109,6 +116,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="100dp"
                         android:layout_marginTop="15dp"
                         android:background="@android:drawable/editbox_background"
                         android:text="Select state"
@@ -122,11 +130,6 @@
 
                         >
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextMobile"
-                            style="@style/modifiedEditText"
-                            android:hint="Mobile Number"
-                            android:inputType="phone" />
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -178,6 +181,7 @@
                         app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_circle_24" />
 
 
+
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                         android:id="@+id/cirAjoutButton"
                         style="@style/loginButton"
@@ -188,6 +192,8 @@
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
                         app:spinning_bar_width="4dp" />
+
+
 
 
                 </LinearLayout>

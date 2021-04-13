@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+<group >
+       <item android:id="@+id/gestion_prof"
+        android:title="gestion des professeurs"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+           >
+           <menu>
+               <item android:id="@+id/ajoutp"
+                   android:title="ajouter prof"
+                   />
+
+               <item android:id="@+id/deletep"
+                   android:title="supprimer prof"
+                   />
+
+               <item android:id="@+id/updatep"
+                   android:title="modifier prof"
+                   />
+
+           </menu>
+</item>
+</group>
+
+        <item android:id="@+id/gestion_eleve"
+            android:title="gestion des éléves"
+            >
+            <menu>
+                <item android:id="@+id/ajoute"
+                    android:title="ajouter prof"
+                    ></item>
+
+                <item android:id="@+id/deletee"
+                    android:title="supprimer prof"
+                    ></item>
+
+                <item android:id="@+id/updatee"
+                    android:title="modifier prof"
+                    ></item>
+
+            </menu>
+        </item>
+
+
+        <item android:id="@+id/gestion_course"
+            android:title="gestion des cours"
+            >
+            <menu>
+                <item android:id="@+id/ajoutc"
+                    android:title="ajouter prof"
+                    ></item>
+
+                <item android:id="@+id/deletec"
+                    android:title="supprimer prof"
+                    ></item>
+
+                <item android:id="@+id/updatec"
+                    android:title="modifier prof"
+                    ></item>
+
+            </menu>
+        </item>
+
+
+</menu>

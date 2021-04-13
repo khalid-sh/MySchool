@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:gravity="bottom"
+    android:background="@drawable/background_bar"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:orientation="vertical"
+    android:padding="15dp"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textnom"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:text="the name"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

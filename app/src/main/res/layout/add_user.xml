@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ajoutp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+    tools:context=".AddProf.addProf"
+    tools:ignore="MissingClass"
+
+    >
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_usbn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/red"
+
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="USBN"
+
+            android:inputType="text"
+            style="@style/modifiedEditText"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_nom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:endIconMode="clear_text"
+            app:helperText="Required"
+            app:helperTextTextColor="@color/red">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom"
+                android:inputType="text"
+                android:textColorHint="@color/primaryTextColor"
+                style="@style/modifiedEditText"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_prenom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:endIconMode="clear_text"
+            app:helperText="*Required"
+            app:helperTextTextColor="@color/red"
+
+            >
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prenom"
+                android:inputType="text"
+                style="@style/modifiedEditText"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:endIconMode="clear_text"
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            style="@style/modifiedEditText"
+
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputAdress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/red"
+
+        app:startIconDrawable="@drawable/ic_baseline_location_on_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAdress"
+            style="@style/modifiedEditText"
+            android:hint="Adress"
+            android:inputType="textPostalAddress"
+
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:text="Select state"
+
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_circle_24" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputMobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:prefixText="+212"
+        app:prefixTextColor="@color/purple_200"
+        app:startIconDrawable="@drawable/ic_baseline_local_phone_24"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMobile"
+            style="@style/modifiedEditText"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/red"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            style="@style/modifiedEditText"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:helperText="*Required"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_today_24"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="BirthDay"
+            android:inputType="none"
+            style="@style/modifiedEditText"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/Textrole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:text="Select Role"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_circle_24" />
+
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+        android:id="@+id/butt"
+        style="@style/loginButton"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/loginViewsMargin"
+        android:onClick="clickMis"
+        android:text="Ajouter" />
+
+</LinearLayout>
