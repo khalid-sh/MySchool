@@ -6,5 +6,6 @@
         android:bottomLeftRadius="15dp"
         android:topLeftRadius="15dp"
         android:topRightRadius="15dp"/>
-    <stroke android:width="2dp" android:color="@color/cardview_shadow_start_color"/>
+    <stroke android:width="2dp" android:color="@color/purple_700"/>
 </shape>
+

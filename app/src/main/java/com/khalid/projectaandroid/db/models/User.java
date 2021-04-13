@@ -1,16 +1,36 @@
-package com.khalid.projectaandroid.db;
+package com.khalid.projectaandroid.db.models;
 
 public class User {
     private int id;
     private String name;
     private String password;
     private String email;
+    private String role;
 
-    public User(int id, String name, String password, String email) {
+    public User(){
+
+    }
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public User(String email, int id, String name, String password,  String role) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+        this.role = role;
+    }
+
+    public User(String email, String name, String password, String role) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.role = role;
     }
 
     public int getId() {
