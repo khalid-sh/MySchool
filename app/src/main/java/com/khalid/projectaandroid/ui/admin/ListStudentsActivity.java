@@ -1,5 +1,6 @@
 package com.khalid.projectaandroid.ui.admin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +12,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.khalid.projectaandroid.R;
@@ -29,6 +33,7 @@ import com.khalid.projectaandroid.holders.UsersViewHolder;
 
 
 public class ListStudentsActivity extends AppCompatActivity {
+    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private EditText textSerched;
     private ImageButton search_btn;
     private RecyclerView myFireStoreList;
@@ -66,7 +71,10 @@ public class ListStudentsActivity extends AppCompatActivity {
                 holder.delete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG).show();
+                        AlertDialog diaBox = AskOption();
+                        diaBox.show();
+                        //Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG).show();
+                        deleteStudent(model);
                     }
                 });
             }
@@ -108,5 +116,53 @@ public class ListStudentsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapter.startListening();
+    }
+    private void deleteStudent(Student student) {
+
+        fStore.collection("Students")
+                        .document(student.getfName())
+                        .delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(getApplicationContext(), "Student has been deleted from Databse.", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(),AdminDashbordActivity.class);
+                            startActivity(i);
+                        } else {
+
+                            Toast.makeText(getApplicationContext(), "Fail to delete the student. ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+    private AlertDialog AskOption()
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                // set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Do you want to Delete")
+                .setIcon(R.drawable.delete)
+
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //your deleting code
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+
+        return myQuittingDialogBox;
     }
 }

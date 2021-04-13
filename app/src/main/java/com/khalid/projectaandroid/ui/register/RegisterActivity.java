@@ -69,17 +69,17 @@ public class RegisterActivity extends AppCompatActivity {
                             UserController userController = new UserController(new UserDAO());
                             userController.insertUser(userObj, user);
                             if (role.equals("admin")) {
-                                Admin admin = new Admin(1, "admin", "admin", "01/02/1999", "062948794287", "rabat", "homme", "2021");
+                                Admin admin = new Admin(1, "admin1", "admin1", "01/02/1999", "062948794287", "rabat", "homme", "2021");
                                 AdminController adminController = new AdminController(new AdminDAO());
                                 adminController.insertAdmin(admin, user);
                             }
                             if (role.equals("teacher")) {
-                                Teacher teacher = new  Teacher(1, "teacher", "teacher", "01/02/1999", "062948794287", "rabat", "homme", "2021");
+                                Teacher teacher = new  Teacher(3, "teacher2", "teacher2", "01/02/1999", "062948794287", "rabat", "homme", "2021");
                                 TeacherController teacherController = new  TeacherController(new TeacherDAO());
                                 teacherController.insertTeacher(teacher, user);
                             }
                             if (role.equals("student")) {
-                                Student student = new Student(1, "student", "student", "01/02/1999", "062948794287", "rabat", "homme", "2021");
+                                Student student = new Student( "student1", "student1", "01/02/1999", "062948794287", "rabat", "homme", "2021");
                                 StudentController studentController = new StudentController(new StudentDAO());
                                 studentController.insertStudent(student, user);
                             }

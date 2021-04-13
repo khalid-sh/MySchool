@@ -24,6 +24,8 @@
         <activity android:name=".ui.admin.ListStudentsActivity"/>
         <activity android:name=".ui.admin.ListTeachersActivity"/>
         <activity android:name=".ui.admin.StudentProfileActivity"/>
+        <activity android:name=".ui.admin.ListClassesActivity"/>
+        <activity android:name=".ui.admin.classes.ClasseProfileActivity"/>
     </application>
 
 </manifest>

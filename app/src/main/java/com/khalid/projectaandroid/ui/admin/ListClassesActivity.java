@@ -24,49 +24,49 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.khalid.projectaandroid.R;
-import com.khalid.projectaandroid.controllers.StudentController;
-import com.khalid.projectaandroid.controllers.TeacherController;
-import com.khalid.projectaandroid.db.dao.StudentDAO;
-import com.khalid.projectaandroid.db.dao.TeacherDAO;
-import com.khalid.projectaandroid.db.models.Student;
+import com.khalid.projectaandroid.controllers.ClasseController;
+import com.khalid.projectaandroid.db.dao.ClasseDAO;
+import com.khalid.projectaandroid.db.models.Classe;
 import com.khalid.projectaandroid.db.models.Teacher;
 import com.khalid.projectaandroid.db.models.User;
-import com.khalid.projectaandroid.holders.TeachersViewHolder;
-import com.khalid.projectaandroid.holders.UsersViewHolder;
+import com.khalid.projectaandroid.holders.ClassesViewHolder;
+import com.khalid.projectaandroid.ui.admin.classes.ClasseProfileActivity;
 
-public class ListTeachersActivity extends AppCompatActivity {
+public class ListClassesActivity extends AppCompatActivity {
     FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private EditText textSerched;
     private ImageButton search_btn;
     private RecyclerView myFireStoreList;
     private FirestoreRecyclerAdapter adapter;
-    TeacherController teacherController = new TeacherController(new TeacherDAO());
+    ClasseController classeController = new ClasseController(new ClasseDAO());
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_students);
-        myFireStoreList = (RecyclerView)findViewById(R.id.myrecycleView);
-        Query query = teacherController.getAllTeachers();
-        FirestoreRecyclerOptions<Teacher> options = new FirestoreRecyclerOptions.Builder<Teacher>()
-                .setQuery(query, Teacher.class)
+        setContentView(R.layout.activity_list_classes);
+        myFireStoreList = (RecyclerView) findViewById(R.id.myrecycleView);
+
+        Query query = classeController.getAllClasses();
+        FirestoreRecyclerOptions<Classe> options = new FirestoreRecyclerOptions.Builder<Classe>()
+                .setQuery(query, Classe.class)
                 .build();
 
-        adapter = new FirestoreRecyclerAdapter<Teacher, TeachersViewHolder>(options) {
+        adapter = new FirestoreRecyclerAdapter<Classe, ClassesViewHolder>(options) {
             @NonNull
             @Override
-            public TeachersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_teacher, parent, false);
-                return new TeachersViewHolder(view);
+            public ClassesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_classes, parent, false);
+                return new ClassesViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull TeachersViewHolder holder, int position, @NonNull Teacher model) {
-                holder.nom.setText(model.getlName());
+            protected void onBindViewHolder(@NonNull ClassesViewHolder holder, int position, @NonNull Classe model) {
+                holder.nom.setText(model.getClasseName());
                 holder.mycard.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "profile", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), StudentProfileActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ClasseProfileActivity.class));
                     }
                 });
                 holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +75,7 @@ public class ListTeachersActivity extends AppCompatActivity {
                         AlertDialog diaBox = AskOption();
                         diaBox.show();
                         //Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG).show();
-                        deleteTeacher(model);
-                    }
+                        deleteClasse(model);                    }
                 });
             }
         };
@@ -89,7 +88,7 @@ public class ListTeachersActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String searchText = textSerched.getText().toString();
                 if (!searchText.trim().equals("")) {
-                    Query query = teacherController.searchTeacherByName(searchText);
+                    Query query = classeController.searchClasseByName(searchText);
                     FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
                             .setQuery(query, User.class)
                             .build();
@@ -119,10 +118,12 @@ public class ListTeachersActivity extends AppCompatActivity {
         adapter.startListening();
     }
 
-    private void deleteTeacher(Teacher teacher) {
 
-        fStore.collection("Teachers")
-                .document(teacher.getfName())
+    private void deleteClasse(Classe classe) {
+
+
+        fStore.collection("Classes")
+                .document(classe.getClasseName())
                 .delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -130,12 +131,12 @@ public class ListTeachersActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(getApplicationContext(), "Teacher has been deleted from Databse.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Classe has been deleted from Databse.", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(getApplicationContext(),AdminDashbordActivity.class);
                             startActivity(i);
                         } else {
 
-                            Toast.makeText(getApplicationContext(), "Fail to delete the teacher. ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Fail to delete the classe. ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -167,4 +168,5 @@ public class ListTeachersActivity extends AppCompatActivity {
 
         return myQuittingDialogBox;
     }
+
 }

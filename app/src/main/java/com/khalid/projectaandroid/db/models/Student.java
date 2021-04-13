@@ -3,21 +3,24 @@ package com.khalid.projectaandroid.db.models;
 import java.util.Date;
 
 public class Student {
-    private int id;
-    private String  fName;
+   // private int id;
+    private String fName;
     private String lName;
     private String DOB;
-    private String  phone;
-    private  String Address;
-    private  String gender;
+    private String phone;
+    private String Address;
+    private String gender;
     private String DateOfJoin;
+    private int id_classe;
 
-    public Student(){
+
+
+    public Student() {
 
     }
 
-    public Student(int id, String fName, String lName, String DOB, String phone, String address, String gender, String dateOfJoin) {
-        this.id = id;
+    public Student( String fName, String lName, String DOB, String phone, String address, String gender, String dateOfJoin, int id_classe) {
+        //this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.DOB = DOB;
@@ -25,9 +28,11 @@ public class Student {
         Address = address;
         this.gender = gender;
         DateOfJoin = dateOfJoin;
+        this.id_classe = id_classe;
     }
 
     public Student(String fName, String lName, String DOB, String phone, String address, String gender, String dateOfJoin) {
+        //this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.DOB = DOB;
@@ -37,13 +42,23 @@ public class Student {
         DateOfJoin = dateOfJoin;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public Student(String fName, String lName, String DOB, String phone, String address, String gender, String dateOfJoin) {
+//        this.fName = fName;
+//        this.lName = lName;
+//        this.DOB = DOB;
+//        this.phone = phone;
+//        Address = address;
+//        this.gender = gender;
+//        DateOfJoin = dateOfJoin;
+//    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getfName() {
         return fName;
@@ -99,5 +114,12 @@ public class Student {
 
     public void setDateOfJoin(String dateOfJoin) {
         DateOfJoin = dateOfJoin;
+    }
+    public int getId_classe() {
+        return id_classe;
+    }
+
+    public void setId_classe(int id_classe) {
+        this.id_classe = id_classe;
     }
 }

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.khalid.projectaandroid.R;
+
 public class Admin_inter extends AppCompatActivity {
 
     @Override
